@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import re
+import sys
 import shutil
 import argparse
 
@@ -32,7 +33,7 @@ def stubwheel(args):
     os.system("cd temp && python setup.py sdist bdist_wheel && twine check dist/* && twine upload dist/*")
     shutil.rmtree('temp')
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--name',    type=str, required=True,   help='package name (required)')
     parser.add_argument('--version', type=str, default='0.0.0', help='package version (optional)')
@@ -42,3 +43,6 @@ if __name__ == '__main__':
     parser.add_argument('--desc',    type=str, default='',      help='package description (optional)')
     args = parser.parse_args()
     stubwheel(args)
+
+if __name__ == "__main__":
+    sys.exit(main())

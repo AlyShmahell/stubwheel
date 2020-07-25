@@ -8,11 +8,11 @@ pip install stubwheel
 
 ## usage
 ```sh
-stubwheel.py --name <PACKAGE_NAME>
+stubwheel --name <PACKAGE_NAME>
 ```
 #### other options:
 ```sh
-stubwheel.py --help
+stubwheel --help
 ```
 ```
   -h, --help         show this help message and exit
