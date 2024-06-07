@@ -12,7 +12,7 @@ setup(
                         else ''),
     long_description_content_type='text/markdown',
     packages=['stubwheel'],    
-    install_requires=['twine >= 3.2.0'],
+    install_requires=['twine >= 3.2.0', 'wheel >= 0.43.0'],
     entry_points = {
         "console_scripts": [
             "stubwheel = stubwheel.__main__:main",

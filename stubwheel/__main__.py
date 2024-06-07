@@ -13,6 +13,7 @@ def progstring(x):
     return "\n".join(x)
 
 def stubwheel(args):
+    os.makedirs('temp', exist_ok=True)
     stub = \
         f"""
         from setuptools import setup, find_packages
@@ -22,12 +23,12 @@ def stubwheel(args):
             url='{args.url}',
             author='{args.author}',
             author_email='{args.email}',
-            description='{args.desc}'
+            description='{args.desc}',
+            long_description='{args.name} {args.desc}',
+            long_description_content_type='text/markdown'
         )
         """
     stub = progstring(stub)
-    if not os.path.isdir('temp'):
-        os.mkdir('temp')
     with open(f"temp/setup.py", 'w') as f:
         f.write(stub)
     os.system("cd temp && python setup.py sdist bdist_wheel && twine check dist/* && twine upload dist/*")
