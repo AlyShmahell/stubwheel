@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='stubwheel',
-    version='1.0.6',
+    version='1.0.7',
     url='https://github.com/AlyShmahell/stubwheel',
     author='AlyShmahell',
     author_email='',
